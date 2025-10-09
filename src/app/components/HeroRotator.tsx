@@ -46,10 +46,10 @@ export default function HeroRotator() {
   }, [displayed, isDeleting, phraseIndex]);
 
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-3xl pr-4 sm:pr-0">
       <div className="mb-4 h-8 sm:h-10">
         <p
-          className={`text-base sm:text-lg md:text-xl lg:text-2xl font-medium tracking-widest uppercase mb-0 transition-all duration-200 ease-out`}
+          className={`text-sm sm:text-base md:text-lg lg:text-2xl font-medium tracking-widest uppercase mb-0 transition-all duration-200 ease-out`}
           aria-live="polite"
         >
           {displayed}
