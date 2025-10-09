@@ -1,11 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ChevronUp, MessageSquare, Bot } from "lucide-react"
-import { NewsletterForm } from "./newsletter-form"
 import { FooterPopup } from "./footer-popup"
-import { Button } from "@/components/ui/button"
+// Lightweight footer: removed framer-motion and lucide-react to avoid extra deps
 
 export function Footer() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
@@ -95,37 +92,27 @@ export function Footer() {
                 >
                   <span className="font-medium text-sm">{section.title}</span>
                   {expandedSection === section.id ? (
-                    <ChevronUp className="w-4 h-4" />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M18 15l-6-6-6 6" />
+                    </svg>
                   ) : (
-                    <ChevronDown className="w-4 h-4" />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+                    </svg>
                   )}
                 </button>
 
-                <AnimatePresence>
-                  {expandedSection === section.id && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="p-4 pt-0 space-y-2 border-t border-border/30">
-                        {section.items.map((item, index) => (
-                          <motion.div
-                            key={index}
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors py-1"
-                            initial={{ x: -10, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ delay: index * 0.05 }}
-                          >
-                            {item}
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {expandedSection === section.id && (
+                  <div className="overflow-hidden">
+                    <div className="p-4 pt-0 space-y-2 border-t border-border/30">
+                      {section.items.map((item, index) => (
+                        <div key={index} className="text-sm text-muted-foreground hover:text-primary transition-colors py-1">
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

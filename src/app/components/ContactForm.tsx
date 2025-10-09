@@ -33,8 +33,8 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="rounded-lg bg-neutral-800 p-6 shadow-lg text-center text-neutral-100">
-        <h4 className="font-semibold text-lg mb-2">Thanks — you're on the list!</h4>
-        <p className="text-sm text-neutral-300">We'll contact you with priority booking information shortly.</p>
+        <h4 className="font-semibold text-lg mb-2">Thanks — you&apos;re on the list!</h4>
+        <p className="text-sm text-neutral-300">We&apos;ll contact you with priority booking information shortly.</p>
         <button className="mt-4 inline-block text-sm text-orange-300 underline" onClick={() => setSubmitted(false)}>
           Submit another
         </button>
