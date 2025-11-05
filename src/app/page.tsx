@@ -12,22 +12,22 @@ import { Footer } from "./components/footer";
 export default function Home() {
   return (
     <div className="min-h-screen relative bg-neutral-900 text-white">
-      {/* Background slider */}
-      <div className="absolute inset-0 filter brightness-75" aria-hidden>
+      {/* Background slider (fixed behind all content so it never collapses on mobile) */}
+      {/* Use z-0 so it paints above the container background but below page content */}
+      <div className="fixed inset-0 z-0 filter brightness-75" aria-hidden>
         <ImageSlider className="h-full w-full" />
       </div>
 
   <Header />
 
       {/* Hero: left-aligned beneath the logo, fills the viewport */}
-      <main id="hero" className="relative z-10 flex items-start justify-start px-6 text-left h-screen pt-36 sm:pt-44 md:pt-52 pl-8 sm:pl-10 md:pl-12">
+      <main id="hero" className="relative z-10 flex items-start justify-start px-6 text-left min-h-screen pt-36 sm:pt-44 md:pt-52 pl-8 sm:pl-10 md:pl-12">
         <HeroRotator />
         <LearnMoreToggle />
       </main>
 
-      {/* About section with /8.jpg background */}
-      <section id="about" className="relative z-10 py-20 px-6">
-        <div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: "url('/8.jpg')" }} aria-hidden />
+  {/* About section with /6.jpg background */}
+  <section id="about" className="relative z-10 py-20 px-6 bg-cover bg-center" style={{ backgroundImage: "url('/6.jpg')" }}>
         <div className="absolute inset-0 -z-5 bg-black/55" aria-hidden />
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div className="p-8 bg-transparent rounded-2xl">
@@ -53,9 +53,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact / Getting in touch with /8.jpg background */}
-      <section id="contact" className="relative z-10 py-16 px-6">
-        <div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: "url('/8.jpg')" }} aria-hidden />
+  {/* Contact / Getting in touch with /6.jpg background */}
+  <section id="contact" className="relative z-10 py-16 px-6 bg-cover bg-center" style={{ backgroundImage: "url('/6.jpg')" }}>
         <div className="absolute inset-0 -z-5 bg-black/55" aria-hidden />
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div className="p-8 bg-transparent rounded-2xl">
